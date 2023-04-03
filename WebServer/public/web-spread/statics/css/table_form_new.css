@@ -1,0 +1,155 @@
+.table-form{
+	font-size: 32px;
+	color:#2f2f2f;
+}
+
+.table-form input{
+	font-size: 32px;
+}
+.table-form input[type=text],.table-form input[type=password]{
+    /*border-radius: 5px;*/
+    /*border: 0px;*/
+	padding: 10px 10px 10px 10px;
+    color: #555;
+	width:760px;
+    background:#fff;
+	height:60px;
+}
+.table-form input[type=checkbox],.table-form input[type=radio]{
+	width:32px;
+    height:32px;
+	vertical-align:middle;
+}
+.table-form .form-row{
+	padding: 10px 10px;
+    overflow: hidden;
+    clear: both;
+}
+.table-form .form-row.btn-row{
+	margin-top:0px;
+	padding-left: 3px;
+}
+.table-form .form-row .lbl {
+	display: inline-block;
+	float:left;
+    /*width: 200px;*/
+	margin:10px 0;
+    /*text-align: right;*/
+}
+.table-form .form-row .input {
+	position:relative;
+	display: inline-block;
+	float:left;
+}
+.table-form .form-row .input .info {
+	display: inline-block;
+	font-size: 30px;
+    width: 300px;
+	padding: 10px;
+}
+.table-form .form-row input[type=text],.table-form .form-row input[type=password]  {
+    /*width: 300px;*/
+}
+
+.table-form textarea{
+	font-size: 32px;
+    /*border-radius: 5px;*/
+    width: 760px;
+    height: 40px;
+	padding: 10px;
+    color: #555;
+    background:#fff;
+}
+
+/*表单验证*/
+.table-form .onShow,.table-form .onFocus,.table-form .onError,.table-form .onCorrect,.table-form .onLoad,.table-form .onTime{
+	/*display:block;
+	background:url(../images/msg_bg.png) no-repeat;
+	line-height:18px;
+	padding: 2px 10px 2px 23px;
+	margin-top: 5px;*/
+	position:absolute;
+	top:26px;
+	right:15px;
+    font-size: 28px;
+}
+
+.table-form .short-input .onShow,.table-form .short-input .onFocus,.table-form .short-input .onError,.table-form .short-input .onCorrect,.table-form .short-input .onLoad,.table-form .short-input .onTime{
+	right:215px;
+}
+.table-form .onShow{
+	background-position:3px -147px;
+	border-color:#40B3FF;
+	color:#959595
+}
+.table-form .onFocus{
+	background-position:3px -147px;
+	border-color:#40B3FF;
+	color:#959595
+	/*color:#2fa7f8*/
+}
+.table-form .onError{
+	background-position:3px -47px;
+	border-color:#40B3FF;
+	color:#959595
+	/*color:#ff6900*/
+}
+.table-form .onCorrect{
+	background-position:3px -247px;
+	border-color:#40B3FF;
+	color:#959595
+	/*color:#80cf13*/
+}
+.table-form .onLamp{
+	background-position:3px -200px
+}
+.table-form .onTime{
+	background-position:3px -1356px
+}
+
+.table-form .bg-white{
+	background-color:#fff;
+}
+
+.table-form .input-border{
+	border: #bfc0c4 solid 1px;
+}
+
+.table-form input.coin-icon{
+	text-indent:60px;
+	background: #fff url("../images/common/icon_rmb.png") no-repeat 15px center;
+}
+
+.table-form .coin-icon{
+	background: #fff;
+	display: block;
+	text-indent: 35px;
+	outline: 0;
+}
+
+.table-form .mgt10{
+	margin-top:10px;
+}
+
+select::-ms-expand { display: none; }
+.table-form .selected select {
+	width:100%;
+	height:80px;
+	font-size:32px;
+	padding:10px 10px 10px 280px;
+	/*border: none;*/
+	outline: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	background: url("../images/common/select_icon.png") #fff no-repeat scroll right 15px center;
+}
+
+.table-form .selected select option{
+	font-size:22px;
+}
+
+.red {
+	color:#a60e0e;
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "type": "hall",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    },
+    {
+        "type": "robot",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    },
+    {
+        "type": "game",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    },
+    {
+        "type": "connector",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    },
+    {
+        "type": "http",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    },
+    {
+        "type": "center",
+        "token": "agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn"
+    }
+]

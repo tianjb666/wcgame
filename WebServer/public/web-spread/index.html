@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="webkit|ie-comp|ie-stand" name="renderer">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" />
+    <link rel="stylesheet" href="statics/css/common.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/member/common.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/member/common2.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/table_form_new.css" type="text/css"/>
+    <script src="statics/js/jquery.min.js"></script>
+    <script src="statics/js/common.js"></script>
+    <script src="statics/js/formValidator/formValidator.js"></script>
+    <script src="statics/js/formValidator/formValidatorRegex.js"></script>
+    <style>
+        .weixin-tip{display: none; position: fixed; left:0; top:0; bottom:0; background: rgba(0,0,0,0.75); filter:alpha(opacity=80);  height: 100%; width: 100%; z-index: 100;}
+        .weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}
+    </style>
+</head>
+<body>
+<script>
+    if(on_mobile()){
+        var scale = screen.width / 800;
+        var viewport = $('meta[name=viewport]');
+        viewport.attr('content','width=device-width,initial-scale=1.0,minimum-scale='+scale+',maximum-scale='+scale+',user-scalable=no,minimal-ui');
+    }
+    function update_container_height(){
+        $('.container').css('height','auto');
+        $('.container').css('height',Math.max(document.body.clientHeight,window.innerHeight)+'px');
+    }
+    $(window).load(function() {
+        update_container_height();
+        setInterval("update_container_height()", 500);
+        $(window).resize(function(){
+            update_container_height();
+        });
+    });
+</script>
+<div class="container">
+    <div class="header">
+        <a class="logo" href="#"><img src="statics/images/index/logo.png" /></a>
+        <div class="title"><img src="statics/images/member/title_register.png" /></div>
+    </div>	<link rel="stylesheet" href="statics/css/member/register.css" type="text/css"/>
+    <script>
+        var isinerval;
+        var verifyTime;
+        var imgCodeUniqueID = Date.now() + "" + Math.floor(Math.random() * 10000);
+        function parseQueryString (url){
+            var obj = {};
+            var start = url.indexOf("?")+1;
+            var str = url.substr(start);
+            var arr = str.split("&");
+            for(var i = 0 ;i < arr.length;i++){
+                var arr2 = arr[i].split("=");
+                obj[arr2[0]] = arr2[1];
+            }
+            return obj;
+        };
+        var parameter = parseQueryString(window.location.href);
+        var spreadID = parameter.uid || "";
+        function verifyCountDown() {
+            if (verifyTime < 1) {
+                $("#verify_btn").val("获取验证码").attr("disabled", false);
+                $("#mobile").attr("readonly", false);
+                clearInterval(isinerval);
+                return;
+            }
+            $("#verify_btn").val(verifyTime+"秒");
+            verifyTime--;
+        }
+
+        //$.getJSON("../../config/gameServer.json",function(data){
+            $(function(){
+                var winHeight = $(window).height();
+                function is_weixin() {
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                if(is_weixin()){
+                    $(".weixin-tip").css("height",winHeight);
+                    $(".weixin-tip").show();
+                }
+
+                $.formValidator.initConfig({
+                    mode:'AutoTip',
+                    formID: 'register_form',
+                    ajaxForm:{
+                        dataType : 'json',
+                        type : 'POST',
+                        buttons:$('#register_btn'),
+                        url: "/spread/WebRegister?imgCodeUniqueID=" + imgCodeUniqueID + "&spreadID=" + spreadID,
+                        success : function(data){
+                            if(data.error){
+                                alert(data.error.msg);
+                            }else{
+                                if(data.state===1){
+                                    alert('注册成功');
+                                    go_forward('./download.html');
+                                }else{
+                                    alert('未知错误');
+                                }
+                            }
+                        }
+                    }
+                });
+                /*$("#download_btn").click(function () {
+                    window.location.href="index.php?m=signin&c=index&a=download";
+                });*/
+                $("#mobile").formValidator({
+                    onShow:"请输入手机号码",
+                    onFocus:"请输入手机号码"
+                }).inputValidator({
+                    min:11,
+                    max:11,
+                    onError:"请输入正确的手机号码"
+                }).regexValidator({
+                    regExp:"mobile",
+                    dataType:"enum",
+                    onError:"请输入正确的手机号码"
+                });
+                $("#password").formValidator({
+                    onShow:"请输入密码",
+                    onFocus:"密码应该为6-20位之间"
+                }).inputValidator({
+                    min:6,
+                    max:20,
+                    onError:"密码应该为6-20位之间"
+                });
+                $("#pwdconfirm").formValidator({
+                    onShow:"请输入确认密码",
+                    onFocus:"两次密码不同",
+                    onCorrect:"密码输入一致"
+                }).inputValidator({
+                    min:6,
+                    max:20,
+                    onError:"确认密码应该为6-20位之间"
+                }).compareValidator({
+                    desID:"password",
+                    operateor:"=",
+                    onError:"密码输入不一致"
+                });
+
+                function sendSmsCode(mobile){
+                    $.ajax({
+                        url: data.gameServerUrl + "/GetSMSCode",
+                        type: "POST",
+                        data: {
+                            params:JSON.stringify({
+                                phoneNumber: mobile
+                            })
+                        },
+                        dataType: "json",
+                        success: function(data){
+                            alert(data);
+                        }
+                    });
+                    verifyTime = 60;
+                    isinerval = setInterval(verifyCountDown, 1000);
+                    $("#verify_btn").val(verifyTime + "秒").attr("disabled", true);
+                    verifyCountDown();
+                }
+
+                $("#verify_btn").on('click',function(){
+                    var mobile = $("#mobile").val();
+                    if(!is_mobile(mobile)){
+                        alert("请输入正确的手机号码");
+                        $('#mobile').focus();
+                        return false;
+                    }
+
+                    sendSmsCode(mobile);
+                });
+                
+                $("#login_btn").on('click',function () {
+                    go_forward('./login.html');
+                })
+            });
+        //});
+    </script>
+    <div class="weixin-tip">
+        <p>
+            <img src="statics/images/download/tips_weixin_android.png" alt="微信打开"/>
+        </p>
+    </div>
+    <div class="main">
+        <form class="table-form register-form" id="register_form" name="register_form" method="post">
+            <input type="hidden" name="forward" id="forward" value="">
+            <div class="form-row">
+                <!--<label class="lbl">mobile_number：</label>-->
+                <div class="input">
+                    <input type="text" id="mobile" placeholder="手机号码" name="mobile" />
+                </div>
+            </div>
+            <div class="form-row">
+                <!--<label class="lbl">密码：</label>-->
+                <div class="input">
+                    <input type="password" id="password" placeholder="密码" name="password" />
+                </div>
+            </div>
+            <div class="form-row">
+                <!--<label class="lbl">cofirmpwd：</label>-->
+                <div class="input">
+                    <input type="password" id="pwdconfirm" placeholder="确认密码" name="pwdconfirm" />
+                </div>
+            </div>
+
+            <!--<div class="form-row">-->
+                <!--<div class="input short-input">-->
+                    <!--<input type="text" id="captcha_code" placeholder="手机验证码" name="captcha"/>-->
+                    <!--<input type="button" id="verify_btn" value="发送验证码" name="captcha2"/>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-row btn-row">
+                <button type="submit" class="blue-btn-medium" id="register_btn" name="dosubmit">注 册</button>
+                <button type="button" class="yellow-btn-medium" id="login_btn" name="login_btn">登 录</button>
+            </div>
+        </form>
+    </div>
+    <div class="fill-height"></div>
+</div>
+</body>
+</html>

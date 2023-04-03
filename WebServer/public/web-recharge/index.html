@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>充值中</title>
+</head>
+<body>
+    <form style='display:none;' id='formpay' name='formpay' method='post' action='https://www.aa168zf.com/Pay_Index.html'>
+        <input name='pay_memberid' id='pay_memberid' type='text' value='' />
+        <input name='pay_orderid' id='pay_orderid' type='text' value='' />
+        <input name='pay_applydate' id='pay_applydate' type='text' value=''/>
+        <input name='pay_bankcode' id='pay_bankcode' type='text' value=''/>
+        <input name='pay_notifyurl' id='pay_notifyurl' type='text' value=''/>
+        <input name='pay_callbackurl' id='pay_callbackurl' type='text' value=''/>
+        <input name='pay_amount' id='pay_amount' type='text' value=''/>
+        <input name='pay_productname' id='pay_productname' type='text' value=''/>
+        <input name='pay_md5sign' id='pay_md5sign' type='text' value=''/>
+        <input type='submit' id='submitdemo1'>
+    </form>
+
+<!-- Jquery files -->
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    $().ready(function(){
+        function parseQueryString (url){
+            var obj = {};
+            var start = url.indexOf("?")+1;
+            var str = url.substr(start);
+            var arr = str.split("&");
+            for(var i = 0 ;i < arr.length;i++){
+                var arr2 = arr[i].split("=");
+                obj[arr2[0]] = arr2[1];
+            }
+            return obj;
+        }
+        var data = parseQueryString(window.location.href);
+        data.data = JSON.parse(decodeURI(data.data));
+        //alert(JSON.stringify(data.data));
+        $("#pay_memberid").val(data.data.pay_memberid);
+        $("#pay_orderid").val(data.data.pay_orderid);
+        $('#pay_applydate').val(data.data.pay_applydate);
+        $('#pay_bankcode').val(data.data.pay_bankcode);
+        $('#pay_notifyurl').val(data.data.pay_notifyurl);
+        $('#pay_callbackurl').val(data.data.pay_callbackurl);
+        $('#pay_amount').val(data.data.pay_amount);
+        $('#pay_productname').val(data.data.pay_productname);
+        $('#pay_md5sign').val(data.data.pay_md5sign);
+        $('#submitdemo1').click();
+
+    });
+</script>    
+
+
+</body>
+</html>

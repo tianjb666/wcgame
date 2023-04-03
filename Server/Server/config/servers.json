@@ -1,0 +1,43 @@
+{
+  "development":{
+    "connector": [
+      {"id": "connector-1", "host": "127.0.0.1", "port": 11000, "clientHost": "127.0.0.1", "clientPort": 12000, "frontend": true, "args":" --inspect=5864"}
+    ],
+    "hall": [
+      {"id": "hall", "host": "127.0.0.1", "port": 11100, "args": " --inspect=5859"}
+    ],
+    "robot": [
+      {"id": "robot", "host": "127.0.0.1", "port": 11200, "args": " --inspect=5860"}
+    ],
+    "game": [
+      {"id": "game-1", "host": "127.0.0.1", "port": 11300, "args": " --inspect=5861"}
+    ],
+    "http": [
+      {"id": "http", "host": "127.0.0.1", "port": 11400, "args": " --inspect=5866"}
+    ],
+    "center": [
+      {"id": "center", "host": "127.0.0.1", "port": 11500, "args": " --inspect=5867"}
+    ]
+  },
+  "production":{
+    "connector": [
+      {"id": "connector-1", "host": "127.0.0.1", "port": 11009, "clientHost": "39.100.112.83", "clientPort": 12009, "frontend": true}
+    ],
+    "hall": [
+      {"id": "hall", "host": "127.0.0.1", "port": 11109}
+    ],
+    "robot": [
+      {"id": "robot", "host": "127.0.0.1", "port": 11209}
+    ],
+    "game": [
+      {"id": "game-1", "host": "127.0.0.1", "port": 11309},
+	  {"id": "game-2", "host": "127.0.0.1", "port": 11310}
+    ],
+    "http": [
+      {"id": "http", "host": "127.0.0.1", "port": 11409}
+    ],
+    "center": [
+      {"id": "center", "host": "127.0.0.1", "port": 11509}
+    ]
+  }
+}

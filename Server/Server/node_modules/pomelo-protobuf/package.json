@@ -1,0 +1,15 @@
+{
+  "name": "pomelo-protobuf",
+  "version": "0.4.0",
+  "main": "./lib/protobuf",
+  "dependencies": {},
+  "author": {
+    "name": "XiaogangZhang",
+    "email": "zhang0925@gmail.com"
+  },
+  "devDependencies": {
+      "should": ">=0.0.1",
+      "mocha": ">=0.0.1"
+  }
+}
+

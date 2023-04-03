@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)http://admin.online.games139.com/Left.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+
+</title><link href="../../styles/layout.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        /*body {background-image: url(../../images/sideBg.gif); background-repeat:repeat-y;}*/
+    </style>
+    <script type="text/javascript">
+        function ShowHide(obj) {
+            var oStyle = obj.style;
+            var imgId = obj.id.replace("M","S");
+            oStyle.display === "none" ? oStyle.display = "block" : oStyle.display = "none";
+            oStyle.display === "none" ? document.getElementById(imgId).src = "../../images/item_hide.png" : document.getElementById(imgId).src = "../../images/item_show.png";
+        }
+        
+        function GetUrl(obj,url) {
+            //加入一个随机防止OPEN的缓存
+            var vNum = Math.random();
+            vNum = Math.round(vNum * 1000);
+            if (url.indexOf('?') > 0) {
+                url = url + "&" + vNum;
+            }
+            else {
+                url = url + "?" + vNum;
+            }
+            window.open(url,"frm_main_content");
+            var trList = document.getElementsByTagName("tr");
+            for(var i = 0;i < trList.length; i++)
+            {
+                if(trList[i].className==="linkBg")
+                {
+                    trList[i].className = "s";
+                }
+            }
+            if (!!obj) obj.className="linkBg";
+        }
+    </script>
+    <script src="../../js/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../../js/shared/utils.js" type="text/javascript"></script>
+    <script src="../../js/shared/API.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function showTable(permission){
+            if ((permission & 0x0004) !== 0){
+                $('#userManager').show();
+            }
+            if ((permission & 0x0008) !== 0){
+                $('#systemSetting').show();
+            }
+            if ((permission & 0x0020) !== 0){
+                $('#spreadManager').show();
+            }
+            if ((permission & 0x0080) !== 0){
+                $('#dataStatistics').show();
+            }
+            if ((permission & 0x0100) !== 0){
+                $('#gameControlSettings').show();
+            }
+            $('#accountManager').show();
+        }
+        $(document).ready(function() {
+            $('#userManager').hide();
+            $('#systemSetting').hide();
+            $('#spreadManager').hide();
+            $('#dataStatistics').hide();
+            $('#gameControlSettings').hide();
+            $('#accountManager').hide();
+        });
+    </script>
+</head>
+    <body>
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="userManager">
+                <tbody><tr>
+		            <td class="bai bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_1);">
+                        <cite style="width: 200px; font-style: normal" class="f14">用户管理</cite>
+                        <img src="../../images/item_show.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_1">
+		            </td>
+	            </tr>
+                <tr style="background-color: #282b33">
+                    <td id="M_1">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+                            <tbody>
+                            <tr class="s" onclick="GetUrl(this, '../user/userManager.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">用户信息</cite></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody>
+                            <tr class="s" onclick="GetUrl(this, '../user/onlineUser.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">在线用户</cite></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="systemSetting">
+                <tbody><tr>
+                    <td class="bai bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_2);">
+                        <cite style="width: 200px; font-style: normal" class="f14">系统维护</cite>
+                        <img src="../../images/item_hide.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_2">
+                    </td>
+                </tr>
+                <tr style="background-color: #282b33">
+                    <td id="M_2" style="display: none">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../systemSet/systemSettings.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">系统设置</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../systemSet/broadcastSettings.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">广播设置</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../systemSet/emailSettings.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">邮件管理</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../systemSet/rechargeSettings.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">充值设置</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../systemSet/gameType.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">游戏设置</cite></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="gameControlSettings">
+                <tbody><tr>
+                    <td class="bai f14 bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_5);">
+                        <cite style="width: 200px; font-style: normal" class="f14">游戏控制</cite>
+                        <img src="../../images/item_hide.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_5">
+                    </td>
+                </tr>
+                <tr style="background-color: #282b33">
+                    <td id="M_5" style="display: none">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=1')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">扎金花</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=10')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">抢庄牛牛</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=11')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">百人牛牛</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=20')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">十三张</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=50')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">百家乐</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=60')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">龙虎大战</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=40')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">红黑大战</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=30')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">推筒子</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=70')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">捕鱼</cite></td>
+                            </tr>
+                            </tbody></table>
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=80')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">斗地主</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=90')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">21点</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=100')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">德州扑克</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../gameControl/gameController.html?gameType=110')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">跑得快</cite></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="spreadManager" style="display: none">
+                <tbody><tr>
+                    <td class="bai f14 bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_3);">
+                        <cite style="width: 200px; font-style: normal" class="f14">推广管理</cite>
+                        <img src="../../images/item_hide.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_3">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="M_3" style="display: none">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <!--<tbody><tr class="s" onclick="GetUrl(this, '../spread/profitConfig.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30">&lt;!&ndash;<img src="../../images/arrSmall.gif" width="8" height="7">&ndash;&gt;</td>
+                                <td width="725" height="30" align="left"><cite class="f12">佣金设置</cite></td>
+                            </tr>
+                            </tbody></table>-->
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../spread/memberManager.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">会员管理</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../spread/extractionCommissionRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">提取佣金记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+                            <tbody><tr class="s" onclick="GetUrl(this, '../spread/spreaderWithdrawCashRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">提款申请</cite></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="dataStatistics">
+                <tbody><tr>
+                    <td class="bai f14 bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_4);">
+                        <cite style="width: 200px; font-style: normal" class="f14">数据统计</cite>
+                        <img src="../../images/item_hide.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_4">
+                    </td>
+                </tr>
+                <tr style="background-color: #282b33">
+                    <td id="M_4" style="display: none">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/adminGrantRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">赠送记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/userGameRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">游戏记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/gameProfitRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">游戏抽水记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/inventoryValueExtractRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">库存抽取记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/inventoryValueModifyRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">库存修改记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/rechargeRecord.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">充值记录</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/rechargeGroupByDay.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">充值统计</cite></td>
+                            </tr>
+                            </tbody></table>
+
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../dataStatistics/recordStatistics.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">记录汇总</cite></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <table cellpadding="0" cellspacing="0" width="100%" border="0" id="accountManager">
+                <tbody><tr>
+                    <td class="bai f14 bold pd32 hand" height="30" onclick="JavaScript:ShowHide(M_6);">
+                        <cite style="width: 200px; font-style: normal" class="f14">帐号管理</cite>
+                        <img src="../../images/item_hide.png" style="width:12px; height:6px; margin-left: 30px; margin-top: 1px" id="S_6">
+                    </td>
+                </tr>
+                <tr style="background-color: #282b33">
+                    <td id="M_6" style="display: none">
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../account/modifyPassword.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">修改密码</cite></td>
+                            </tr>
+                            </tbody></table>
+                        <table width="100%" border="0" align="right" cellpadding="0" cellspacing="0" class="bai">
+
+                            <tbody><tr class="s" onclick="GetUrl(this, '../account/administratorsAccount.html')">
+                                <td width="313" height="30" align="right"></td>
+                                <td width="67" height="30"><!--<img src="../../images/arrSmall.gif" width="8" height="7">--></td>
+                                <td width="725" height="30" align="left"><cite class="f12">添加帐号</cite></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                </tbody></table>
+    </body>
+</html>

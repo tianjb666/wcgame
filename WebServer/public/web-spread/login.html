@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="webkit|ie-comp|ie-stand" name="renderer">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" />
+    <link rel="stylesheet" href="statics/css/common.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/member/common.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/member/common2.css" type="text/css"/>
+    <link rel="stylesheet" href="statics/css/table_form_new.css" type="text/css"/>
+    <script src="statics/js/jquery.min.js"></script>
+    <script src="statics/js/common.js"></script>
+    <script src="statics/js/formValidator/formValidator.js"></script>
+    <script src="statics/js/formValidator/formValidatorRegex.js"></script>
+</head>
+<body>
+<script>
+    if(on_mobile()){
+        var scale = screen.width / 800;
+        var viewport = $('meta[name=viewport]');
+        viewport.attr('content','width=device-width,initial-scale=1.0,minimum-scale='+scale+',maximum-scale='+scale+',user-scalable=no,minimal-ui');
+    }
+    function update_container_height(){
+        $('.container').css('height','auto');
+        $('.container').css('height',Math.max(document.body.clientHeight,window.innerHeight)+'px');
+    }
+    $(window).load(function() {
+        update_container_height();
+        setInterval("update_container_height()", 500);
+        $(window).resize(function(){
+            update_container_height();
+        });
+    });
+</script>
+<div class="container">
+    <div class="header">
+        <a class="logo" href="#"><img src="statics/images/index/logo.png" /></a>
+        <div class="title"><img src="statics/images/member/labelImg_login.png" /></div>
+    </div>	<link rel="stylesheet" href="statics/css/member/register.css" type="text/css"/>
+    <style>
+        .weixin-tip{display: none; position: fixed; left:0; top:0; bottom:0; background: rgba(0,0,0,0.75); filter:alpha(opacity=80);  height: 100%; width: 100%; z-index: 100;}
+        .weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}
+        .common-btn{
+            width: 180px;
+            height: 60px;
+            font-size: 30px;
+            background-color: #00B7FF;
+            cursor: pointer;
+            color:#FFFFFF;
+            border:none;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var loginUrl;
+        $(function(){
+            var winHeight = $(window).height();
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) === "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if(is_weixin()){
+                var tip = $(".weixin-tip");
+                tip.css("height",winHeight);
+                tip.show();
+            }
+        });
+        $(document).ready(function() {
+            $('#login_btn').click(function(){
+                let mobile = $("#mobile").val();
+                let password = $("#password").val();
+                $.ajax({
+                    url: "/spread/WebLoginByPhone",
+                    type: "POST",
+                    data: {
+                        mobile: mobile,
+                        password: password
+                    },
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        if(data.error){
+                            alert(data.error.msg);
+                        }else{
+                            if(data.state === 1){
+                                alert('登陆成功，前往下载');
+                                go_forward('./download.html');
+                            }else{
+                                alert(data);
+                            }
+                        }
+                    },
+                    error: function () {
+                        alert("请求错误");
+                    }
+                });
+            });
+        });
+        //$.getJSON("../config/config.json",function(data){
+            //loginUrl = "spread/WebLoginByPhone";
+
+            /*$.formValidator.initConfig({
+                mode:'AutoTip',
+                formID: 'login_form',
+                ajaxForm:{
+                    dataType : 'json',
+                    type : 'POST',
+                    buttons:$('#login_btn'),
+                    url: loginUrl,
+                    success : function(data){
+                        if(data.error){
+                            alert(data.error.msg);
+                        }else{
+                            if(data.state === 1){
+                                alert('登陆成功');
+                                go_forward('./download.html');
+                            }else{
+                                alert(data);
+                            }
+                        }
+                    },
+                    error: function(data){
+                        alert(data);
+                    }
+                }
+            });*/
+
+            $("#mobile").formValidator({
+                onShow:"请输入手机号码",
+                onFocus:"请输入手机号码"
+            }).inputValidator({
+                min:11,
+                max:11,
+                onError:"请输入正确的手机号码"
+            }).regexValidator({
+                regExp:"mobile",
+                dataType:"enum",
+                onError:"请输入正确的手机号码"
+            });
+            $("#password").formValidator({
+                onShow:"请输入密码",
+                onFocus:"密码应该为6-20位之间"
+            }).inputValidator({
+                min:6,
+                max:20,
+                onError:"密码应该为6-20位之间"
+            });
+        //});
+    </script>
+    <div class="weixin-tip">
+        <p>
+            <img src="statics/images/download/tips_weixin_android.png" alt="微信打开"/>
+        </p>
+    </div>
+    <div class="main">
+        <div class="table-form register-form" id="login_form">
+            <input type="hidden" name="forward" id="forward" value="">
+            <div class="form-row">
+                <div class="input">
+                    <input type="text" id="mobile" placeholder="手机号码" name="mobile" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input">
+                    <input type="password" id="password" placeholder="密码" name="password" />
+                </div>
+            </div>
+            <div class="form-row" style="text-align:center;">
+                <button type="button" class="yellow-btn-medium" id="login_btn" name="login_btn" style="left: 0; right: 0; margin:auto; text-align: center; position: absolute;">登 录</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

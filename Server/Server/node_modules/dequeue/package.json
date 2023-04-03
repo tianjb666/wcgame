@@ -1,0 +1,17 @@
+{
+  "name"  : "dequeue"
+, "main"  : "./lib/index.js"
+, "version" : "1.0.3"
+, "description" : "A simple double ended queue datastructure"
+, "keywords"    : ["datastructure", "queue", "double ended queue", "fifo", "FIFO", "linked list"]
+, "homepage"    : "https://github.com/lleo/node-dequeue"
+, "repository"  : { "type": "git"
+                  , "url": "https://github.com/lleo/node-dequeue" }
+, "bugs"        : { "url": "https://github.com/lleo/node-dequeue/issues"
+                  , "email": "lleoem@gmail.com" }
+, "author"      : { "name": "LLeo"
+                  , "email": "lleoem@gmail.com"
+                  , "url": "http://lleo-blog.blogspot.com/" }
+, "engines" : {"node" : "*"}
+, "dependencies" : {}
+}

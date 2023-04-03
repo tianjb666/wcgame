@@ -1,0 +1,28 @@
+{
+  "development": {
+    "gamehttps": {
+      "useSSL": true,
+      "keyFile": "config/key.pem",
+      "certFile": "config/cert.pem",
+      "host": "127.0.0.1",
+      "port": 3001
+    },
+    "gamehttp": {
+      "host": "127.0.0.1",
+      "port": 3002
+    }
+  },
+  "production": {
+    "gamehttps": {
+      "useSSL": true,
+      "keyFile": "config/key.pem",
+      "certFile": "config/cert.pem",
+      "host": "127.0.0.1",
+      "port": 3001
+    },
+    "gamehttp": {
+      "host": "127.0.0.1",
+      "port": 3002
+    }
+  }
+}

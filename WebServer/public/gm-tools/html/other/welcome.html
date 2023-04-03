@@ -1,0 +1,42 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	欢迎页
+</title><link rel="stylesheet" type="text/css" href="../../styles/layout.css">
+    <link href="../../styles/layout.css" rel="stylesheet" type="text/css">
+    <link href="../../styles/easyui.css" rel="stylesheet" type="text/css">
+    <style>
+        .datagrid-header-row td{font-weight:bold; height:30px; font-size:x-large;}
+    </style>
+    <script src="../../js/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="../../js/lib/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="../../js/lib/build/build.js" type="text/javascript"></script>
+    <script src="../../js/lib/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="../../js/shared/utils.js" type="text/javascript"></script>
+<style>
+    .welcome-bd{ padding: 10px;}
+    .welcome-box{ border: 1px solid #dcdcdc; background: url(../../images/welcome_i.jpg);position: relative;padding:40px 40px 133px;}
+    .welcome-i{
+        position: absolute;bottom: -1px;right: -1px; height: 133px; width: 248px; background: url(../../images/welcome_bj.jpg);
+    }
+    .welcome-box h2{ font-size: 14px; margin-bottom: 15px;}
+    .welcome-box h2 strong{ color: red;}
+    .welcome-list{ height: 30px; line-height: 30px; display:block;}
+    .welcome-list label{ width: 110px; text-align: right;float: left; margin-right: 5px;}
+</style>
+</head>
+
+<body>
+    <div class="welcome-bd">
+        <div class="welcome-box">
+            <i class="welcome-i"></i>
+            <h1>欢迎登陆游戏后台管理系统</h1>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var parameter = parseQueryString(window.location.href);
+
+        setTimeout(function(){
+            $(window.parent.document).contents().find("#frm_left")[0].contentWindow.showTable(JSON.parse(parameter.permission));
+        }, 500);
+    </script>
+</body></html>

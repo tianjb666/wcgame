@@ -1,0 +1,16 @@
+{
+  "development": {
+    "gamehttp": [{
+      "id": "gamehttp",
+      "port": 3011,
+      "host": "127.0.0.1"
+    }]
+  },
+  "production": {
+    "gamehttp": [{
+      "id": "gamehttp",
+      "port": 3011,
+      "host": "127.0.0.1"
+    }]
+  }
+}

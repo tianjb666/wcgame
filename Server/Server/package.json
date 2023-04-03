@@ -1,0 +1,23 @@
+{
+  "name": "Server",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "async": "1.4.2",
+    "captchapng": "0.0.1",
+    "express-xml-parser": "1.0.0",
+    "formstream": "1.1.0",
+    "gm": "1.23.0",
+    "js-md5": "^0.6.0",
+    "mongoose": "~4.0.0",
+    "mongoose-auto-increment": "4.0.0",
+    "node-fs": "0.1.7",
+    "pomelo": "2.2.5",
+    "pomelo-http-plugin": "^0.0.25",
+    "pomelo-logger": "0.1.6",
+    "pomelo-sync-plugin": "0.0.2",
+    "qr-image": "3.2.0",
+    "redis": "^2.8.0",
+    "sha1": "1.1.1"
+  }
+}

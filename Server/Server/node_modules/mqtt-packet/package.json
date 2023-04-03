@@ -1,0 +1,49 @@
+{
+  "name": "mqtt-packet",
+  "version": "5.6.1",
+  "description": "Parse and generate MQTT packets like a breeze",
+  "main": "mqtt.js",
+  "types": "types/index.d.ts",
+  "contributors": [
+    "Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+    "Adam Rudd <damvrr@gmail.com>",
+    "Peter Sorowka (https://github.com/psorowka)",
+    "Wouter Klijn <contact@wuhkuh.com> (https://github.com/wuhkuh)"
+  ],
+  "scripts": {
+    "test": "tape test.js | tap-spec && standard",
+    "ci": "tape test.js && node testRandom && standard"
+  },
+  "pre-commit": "test",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mqttjs/mqtt-packet.git"
+  },
+  "keywords": [
+    "MQTT",
+    "packet",
+    "parse",
+    "publish",
+    "subscribe",
+    "pubsub"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mqttjs/mqtt-packet/issues"
+  },
+  "homepage": "https://github.com/mqttjs/mqtt-packet",
+  "devDependencies": {
+    "dev-null": "^0.1.1",
+    "pre-commit": "^1.2.2",
+    "readable-stream": "^2.3.0",
+    "standard": "^10.0.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "bl": "^1.2.1",
+    "inherits": "^2.0.3",
+    "process-nextick-args": "^2.0.0",
+    "safe-buffer": "^5.1.0"
+  }
+}

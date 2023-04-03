@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "6.11.4"
+  - "8.6.0"
+before_install:
+  - npm install coveralls
+  - npm install mocha-lcov-reporter
+script: npm run-script coveralls
+branches:
+  only:
+    - master

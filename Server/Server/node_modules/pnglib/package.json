@@ -1,0 +1,19 @@
+{
+  "name": "pnglib",
+  "version": "0.0.1",
+  "description": "A PNG lib for Node.js",
+  "author": {
+    "name": "George Chan"
+  },
+  "main": "./lib/pnglib.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeorgeChan/pnglib.git"
+  },
+  "keywords": [
+    "pnglib"
+  ],
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "readme": "#PNGLib\nA PNG lib for Node.js\n\n A handy class to calculate color values.\n\n```\n version 1.0\n author Robert Eisele robert@xarg.org\n copyright Copyright (c) 2010, Robert Eisele\n link http://www.xarg.org/2010/03/generate-client-side-png-files-using-javascript/\n license http://www.opensource.org/licenses/bsd-license.php BSD License\n```\nModified by George Chan gchan@21cn.com\n\n##Install\n```\nnpm install pnglib\n```\n\n##Examples\nExample see:  https://github.com/GeorgeChan/captchapng"
+}

@@ -1,0 +1,51 @@
+[
+  {"kind": 1, "level": 1, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 1, "goldLowerLimit": 10, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 1, "level": 2, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 2, "goldLowerLimit": 200, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 1, "level": 3, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 5, "goldLowerLimit": 500, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 1, "level": 4, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 10, "goldLowerLimit": 1000, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+
+  {"kind": 10, "level": 1, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 1, "goldLowerLimit": 100, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 10, "level": 2, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 2, "goldLowerLimit": 200, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 10, "level": 3, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 5, "goldLowerLimit": 500, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 10, "level": 4, "minPlayerCount": 2, "maxPlayerCount" : 5,  "baseScore": 10, "goldLowerLimit": 1000, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+
+  {"kind": 11, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 999,  "baseScore": 1, "goldLowerLimit": 0, "goldUpper":0, "hundred": 1},
+
+  {"kind": 20, "level": 1, "minPlayerCount": 2, "maxPlayerCount" : 4,  "baseScore": 1, "goldLowerLimit": 100, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 20, "level": 2, "minPlayerCount": 2, "maxPlayerCount" : 4,  "baseScore": 2, "goldLowerLimit": 200, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 20, "level": 3, "minPlayerCount": 2, "maxPlayerCount" : 4,  "baseScore": 5, "goldLowerLimit": 500, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 20, "level": 4, "minPlayerCount": 2, "maxPlayerCount" : 4,  "baseScore": 10, "goldLowerLimit": 1000, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+
+  {"kind": 30, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 999, "baseScore": 1, "goldLowerLimit": 10, "goldUpper":0, "hundred": 1},
+
+  {"kind": 40, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 999, "baseScore": 1, "goldLowerLimit": 0, "goldUpper":0,  "hundred": 1},
+
+  {"kind": 50, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 999, "baseScore": 1, "goldLowerLimit": 0, "goldUpper":0, "hundred": 1},
+  
+  {"kind": 60, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 999,  "baseScore": 1, "goldLowerLimit": 0, "goldUpper":0, "hundred": 1},
+
+  {"kind": 70, "level": 1, "minPlayerCount": 0, "maxPlayerCount" : 4, "baseScore": 0.01, "goldLowerLimit": 0, "goldUpper":0},
+  {"kind": 70, "level": 2, "minPlayerCount": 0, "maxPlayerCount" : 4, "baseScore": 0.1, "goldLowerLimit": 0, "goldUpper":0},
+  {"kind": 70, "level": 3, "minPlayerCount": 0, "maxPlayerCount" : 4, "baseScore": 1, "goldLowerLimit": 0, "goldUpper":0},
+  {"kind": 70, "level": 4, "minPlayerCount": 0, "maxPlayerCount" : 4, "baseScore": 10, "goldLowerLimit": 0, "goldUpper":0},
+
+  {"kind": 80, "level": 1, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 0.01, "goldLowerLimit": 1, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 80, "level": 2, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 0.1, "goldLowerLimit": 10, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+  {"kind": 80, "level": 3, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 1, "goldLowerLimit": 100, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 1, "maxRobotCount": 2},
+
+  {"kind": 90, "level": 1, "minPlayerCount": 1, "maxPlayerCount" : 3, "baseScore": 1, "goldLowerLimit": 10, "goldUpper":0},
+
+  {"kind": 100, "level": 1, "minPlayerCount": 2, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 10, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 0.5, "preBetCount": 0, "maxTake": 200}},
+  {"kind": 100, "level": 2, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 40, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 2, "preBetCount": 0, "maxTake": 800}},
+  {"kind": 100, "level": 3, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 80, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 4, "preBetCount": 0, "maxTake": 1600}},
+  {"kind": 100, "level": 4, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 200, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 10, "preBetCount": 0, "maxTake": 4000}},
+  {"kind": 100, "level": 5, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 20, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 0.5, "preBetCount": 5, "maxTake": 200}},
+  {"kind": 100, "level": 6, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 80, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 2, "preBetCount": 20, "maxTake": 800}},
+  {"kind": 100, "level": 7, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 160, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 4, "preBetCount": 40, "maxTake": 1600}},
+  {"kind": 100, "level": 8, "minPlayerCount": 3, "maxPlayerCount" : 9, "baseScore": 1, "goldLowerLimit": 400, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 2, "maxRobotCount": 7, "parameters": {"blindBetCount": 10, "preBetCount": 100, "maxTake": 4000}},
+
+  {"kind": 110, "level": 1, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 0.01, "goldLowerLimit": 1, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 0, "maxRobotCount": 2},
+  {"kind": 110, "level": 2, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 0.1, "goldLowerLimit": 10, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 0, "maxRobotCount": 2},
+  {"kind": 110, "level": 3, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 1, "goldLowerLimit": 100, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 0, "maxRobotCount": 2},
+  {"kind": 110, "level": 4, "minPlayerCount": 3, "maxPlayerCount" : 3, "baseScore": 10, "goldLowerLimit": 1000, "goldUpper":0, "matchRoom": 1, "maxDrawCount": 1, "minRobotCount": 0, "maxRobotCount": 2}
+]

@@ -1,0 +1,56 @@
+*{
+	font-family:Microsoft YaHei;
+}
+body{
+	width:800px;
+	margin:0 auto;
+	padding:0;
+    font-size: 25px;
+	background-color:#ffffff;
+	color:#3f3f3f;
+	overflow-x:hidden;
+}
+a{
+    border:none;
+    text-decoration:none;
+    font-size: 25px;
+	color:#3f3f3f;
+}
+img{
+    border:none;
+    display:inline-block;
+}
+textarea{
+	resize:none;
+}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{*+height:1%;}
+.pull-left{float:left}
+.pull-right{float:right}
+.text-center{text-align:center;}
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+
+.blue{color: #006bd4;}
+.red{color: #b7140b;}
+.green{color: #23790e;}
+
+.w5{width:5%;}
+.w10{width:10%;}
+.w15{width:15%;}
+.w20{width:20%;}
+.w25{width:25%;}
+.w30{width:30%;}
+.w35{width:35%;}
+.w40{width:40%;}
+.w45{width:45%;}
+.w50{width:50%;}
+.w55{width:55%;}
+.w65{width:65%;}
+.w70{width:70%;}
+.w75{width:75%;}
+.w80{width:80%;}
+.w85{width:85%;}
+.w90{width:90%;}
+.w95{width:95%;}
+.w100{width:100%;}

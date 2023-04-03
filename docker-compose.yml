@@ -1,0 +1,70 @@
+version: "3.0"
+services:
+   mongodb:
+     image: mongo:4.4
+     ports:
+       - "27017:27017"
+     restart: always
+     command:
+      - "--auth"
+     volumes:
+        - mongo-data:/data/db
+     environment:
+       MONGO_INITDB_ROOT_USERNAME: root
+       MONGO_INITDB_ROOT_PASSWORD: 123456
+   redis:
+      image: redis:6.2.11
+      ports:
+        - "6379:6379"
+      restart: always
+      volumes:
+        - redis-data:/data
+   game_server:
+      image: sisobobo/wc_game_server:1.0
+      ports:
+       - "13000:13009"
+       - "12000:12000"
+      restart: always
+      environment:
+       SERVER_HOST: 172.16.77.20
+       MONGO_HOST: mongodb
+       MONGO_PORT: 27017
+       MONGO_USER: root
+       MONGO_PASSWORD: 123456
+       REDIS_HOST: redis
+       REDIS_PORT: 6379
+       REDIS_PASSWORD: ''
+      depends_on:
+       - redis
+       - mongodb
+   game_web:
+      image: sisobobo/wc_game_web:1.0
+      ports:
+       - "14000:8080"
+      restart: always
+      environment:
+       GAME_SERVER: http://game_server:13000
+       MONGO_HOST: mongodb
+       MONGO_PORT: 27017
+       MONGO_USER: root
+       MONGO_PASSWORD: 123456
+       REDIS_HOST: redis
+       REDIS_PORT: 6379
+       REDIS_PASSWORD: ''
+      depends_on:
+       - redis
+       - mongodb
+   game_mobile:
+      image: sisobobo/wc_game:1.0
+      ports:
+       - "8000:80"
+      restart: always
+      environment:
+       GAME_SERVER: http://172.16.77.20:13000
+       WEB_SERVER: http://172.16.77.20:14000
+      depends_on:
+       - game_server
+       - game_web
+volumes:
+  mongo-data: {}
+  redis-data: {}

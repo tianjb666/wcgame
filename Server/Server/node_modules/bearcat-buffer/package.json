@@ -1,0 +1,12 @@
+{
+  "name": "bearcat-buffer",
+  "version": "0.1.1",
+  "description": "bearcat buffer",
+  "main": "index.js",
+  "keywords": [
+    "bearcat",
+    "buffer"
+  ],
+  "author": "fantasyni",
+  "license": "MIT"
+}
